@@ -1,0 +1,26 @@
+screening:
+  window_hours: 24.0
+  # Screening capture width: how far out to record a conjunction at all.
+  # Set wide (500 km) so the dashboard's interactive miss-distance slider
+  # has real data across its full range. The slider still starts at the
+  # tighter operational alert threshold below (dashboard.default_alert_km)
+  # — risk tiers are Pc-based and unaffected by this capture width either way.
+  miss_distance_threshold_km: 500.0
+  hard_body_radius_km: 0.02
+  primary_norad_id: 25544  # ISS
+  colocation_std_threshold_km: 0.1  # flags catalog duplicates (e.g. ISS modules) as non-conjunctions
+
+classifier:
+  pc_green_max: 1.0e-5
+  pc_yellow_max: 1.0e-4
+
+cam:
+  safe_miss_distance_km: 5.0
+  isp_s: 220.0
+  g0_m_s2: 9.80665
+  spacecraft_mass_kg: 150.0
+
+dashboard:
+  refresh_hours: 6.0
+  output_path: dashboard/index.html
+  default_alert_km: 5.0  # dashboard slider's initial position
